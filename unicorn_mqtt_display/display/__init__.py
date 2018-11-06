@@ -39,6 +39,7 @@ def change(mode):
     driver.start()
 
     logger.debug('change sequence is end.')
+    return True
 
 def start():
     logger.debug('display initial function start.')

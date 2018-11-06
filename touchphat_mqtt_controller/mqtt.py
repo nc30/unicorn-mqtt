@@ -1,13 +1,12 @@
+# coding: utf-8
 
 from logging import getLogger
 logger = getLogger(__name__)
 
 import paho.mqtt.client as mqtt
-from . import display
-import json
 import os
 
-NAME = os.environ.get('MQTT_NAME', 'mqtt_display')
+NAME = os.environ.get('MQTT_NAME', 'mqtt_controller')
 MQTT_HOST = os.environ.get('MQTT_HOST')
 MQTT_USER = os.environ.get('MQTT_USER')
 MQTT_PASSWORD = os.environ.get('MQTT_PASSWORD')
@@ -15,25 +14,9 @@ MQTT_PORT = int(os.environ.get('MQTT_PORT'))
 
 client = mqtt.Client(protocol=mqtt.MQTTv311)
 
-
 def on_connect(sclient, userdata, flags, respons_code):
     logger.debug('connection success.')
-
-    client.subscribe('cmnd/' + NAME + '/display/change')
     client.publish('stat/' + NAME + '/status', 'connected.')
-
-
-def on_message(client, userdata, msg):
-    logger.debug('get message (%s)', msg.topic + ' : ' + msg.payload.decode('utf-8'))
-
-    if msg.topic == 'cmnd/' + NAME + '/display/change':
-        message = msg.payload.decode('utf-8')
-        r = display.change(message)
-        result = {
-            'success': True if r else False,
-            'mode': message
-        }
-        client.publish('result/' + NAME + '/display/change', json.dumps(result))
 
 
 def on_disconnect(client, userdata, rc):
@@ -45,17 +28,11 @@ def on_disconnect(client, userdata, rc):
 def start():
     client.username_pw_set(MQTT_USER, password=MQTT_PASSWORD)
     client.on_disconnect = on_disconnect
-    client.on_message = on_message
     client.on_connect = on_connect
 
     logger.debug('connection start.')
     client.connect(MQTT_HOST, MQTT_PORT)
 
-    display.start()
-
     logger.debug('loop start.')
     client.loop_forever()
 
-
-def end():
-    display.end()
