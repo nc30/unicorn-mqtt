@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
+# coding: utf-8
 
 """
+    時計表示スクリプト
+    中身はいつか作ったものと同様ですが、
+    並列処理を実現するために少し手直しを加えています。
 """
+
 from logging import getLogger
 logger = getLogger(__name__)
 
@@ -21,10 +26,16 @@ font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 9)
 
 # 無限ループ
 def loop(event):
+    """
+        ループ関数
+        引数にEventオブジェクトをとり、終了イベントを受け取れるように改変を加えている。
+    """
     logger.debug('clock loop start.')
 
     unicornhathd.rotation(0)
 
+    # ループ条件をeventオブジェクトがイベントを受け取っていないことにしている
+    # eventがセットされるとループを終了する
     while not event.is_set():
 
         # 描写用キャンバスの新規作成
@@ -61,3 +72,4 @@ def loop(event):
         time.sleep(0.1)
 
     logger.debug('clock loop end.')
+    
