@@ -72,4 +72,3 @@ def loop(event):
         time.sleep(0.1)
 
     logger.debug('clock loop end.')
-    

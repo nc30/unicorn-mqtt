@@ -59,13 +59,13 @@ def on_message(client, userdata, msg):
 
     # 変更要求受付トピックで有ることを確認
     if msg.topic == 'cmnd/' + NAME + '/display/change':
-        
+
         # メッセージはバイト型として渡されるので、デコードして文字型に変更する
         message = msg.payload.decode('utf-8')
-        
+
         # ディスプレイに変更要求をする
         r = display.change(message)
-       
+
         # 結果をパブリッシュする
         result = {
             'success': True if r else False,
@@ -88,7 +88,7 @@ def start():
     """
         接続開始関数
     """
-    
+
     # ユーザー情報をセット
     client.username_pw_set(MQTT_USER, password=MQTT_PASSWORD)
     # 各コールバックをセットする

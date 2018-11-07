@@ -53,7 +53,7 @@ def start():
     """
         接続開始関数
     """
-    
+
     # ユーザー情報をセット
     client.username_pw_set(MQTT_USER, password=MQTT_PASSWORD)
     # 各コールバックをセットする
