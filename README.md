@@ -19,8 +19,8 @@ https://www.cloudmqtt.com
 
 ```shell
 $ sudo raspi-config # SPIを有効にする
-$ sudo apt-get install python3-pip python3-dev python3-spidev python3-pil python3-numpy
-$ sudo apt-get install ttf-dejavu　fonts-takao
+$ sudo apt-get install python3-pip python3-dev python3-spidev python3-pil python3-numpy -y
+$ sudo apt-get install ttf-dejavu　fonts-takao -y
 $ sudo pip3 install unicornhathd paho-mqtt requests
 ```
 
@@ -35,7 +35,7 @@ https://github.com/pimoroni/unicorn-hat-hd/tree/master/examples/weather-icons
 
 ```shell
 $ sudo raspi-config # I2Cを有効にする
-$ sudo apt-get install python3-pip python3-dev python3-smbus
+$ sudo apt-get install python3-pip python3-dev python3-smbus -y
 $ sudo pip3 install touchphat paho-mqtt
 ```
 
