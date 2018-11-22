@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
+# coding: utf-8
 
-```
+"""
     touchphat_mqtt_controllerを始動させるサンプル
     別途環境変数の指定が必要です。
 
@@ -13,7 +14,7 @@
     MQTT_USER MQTTユーザー名
     MQTT_PASSWORD MQTTパスワード
     MQTT_PORT MQTTポート
- ```
+ """
 
 # ロギング設定
 # 今回は標準出力でINFO以上のログを出力する
