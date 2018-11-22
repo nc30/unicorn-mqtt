@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# coding: utf-8
 
 from logging import getLogger
 logger = getLogger('unicorn_mqtt_display')
