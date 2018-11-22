@@ -27,7 +27,7 @@ $ sudo pip3 install unicornhathd paho-mqtt requests
 ライブラリ内の ``` unicorn_mqtt_display/display ``` ディレクトリ上に公式ライブラリの ``` examples ``` 上にある
 ``` weather-icons ```　ディレクトリをコピーする必要があります 
 
-https://github.com/pimoroni/unicorn-hat-hd/tree/master/examples/weather-icons
+https://github.com/pimoroni/unicorn-hat-hd/tree/master/examples/
 
 
 
