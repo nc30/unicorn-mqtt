@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
+"""
+    unicornhat_mqtt_controllerを始動させるサンプル
+    別途環境変数の指定が必要です。
+    
+    必要な環境変数は以下のとおりです。
+    
+    NAME 自分の名前
+    MQTT_NAME MQTT上で使用する名前
+    MQTT_HOST MQTTホスト名
+    MQTT_USER MQTTユーザー名
+    MQTT_PASSWORD MQTTパスワード
+    MQTT_PORT MQTTポート
+    OPENWEATHER_API_KEY openWeatherのAPIキー
+    WEATHER_CITY 天気予報を行う地域
+    
+ """
+
 from logging import getLogger
 logger = getLogger('unicorn_mqtt_display')
 
