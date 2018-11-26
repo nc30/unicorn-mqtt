@@ -39,6 +39,37 @@ $ sudo apt-get install python3-pip python3-dev python3-smbus -y
 $ sudo pip3 install touchphat paho-mqtt
 ```
 
+
+## 起動コマンド
+これらの起動はそれぞれ下記のようなコマンドを使ってください。
+
+### touchphat_main側
+
+```shell
+$ MQTT_TARGET_NAME=nagoya \
+MQTT_NAME=matsumoto \
+MQTT_HOST={mqtt broker hostname} \
+MQTT_USER={mqtt user} \
+MQTT_PASSWORD={mqtt password} \
+MQTT_PORT={mqtt port} \
+python3 touchphat_main.py
+```
+
+
+### unicornhat_main側
+```shell
+$ MQTT_NAME=nagoya \
+MQTT_HOST={mqtt broker hostname} \
+MQTT_USER={mqtt user} \
+MQTT_PASSWORD={mqtt password} \
+MQTT_PORT={mqtt port} \
+OPENWEATHER_API_KEY={openWeather api key} \
+WEATHER_CITY={天気予報を行う地域} \
+python3 unicornhat_main.py
+```
+
+
+
 ## ライブラリへのリンク
 
 - CloudMQTT - https://www.cloudmqtt.com
