@@ -7,7 +7,6 @@
     
     必要な環境変数は以下のとおりです。
     
-    NAME 自分の名前
     MQTT_NAME MQTT上で使用する名前
     MQTT_HOST MQTTホスト名
     MQTT_USER MQTTユーザー名
