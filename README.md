@@ -14,8 +14,17 @@ https://www.cloudmqtt.com
 
 ## 環境構築
 それぞれ以下のコマンドを使用して必須パッケージをインストールします。
+インストールスクリプトを使用するか、マニュアルで設定します。
 
 ### UnicornHatHD側
+
+#### スクリプトを使用する場合
+
+```shell
+$ sudo pre-install-unicorn.sh
+```
+
+#### 手動で行う場合
 
 ```shell
 $ sudo raspi-config # SPIを有効にする
@@ -32,6 +41,14 @@ https://github.com/pimoroni/unicorn-hat-hd/tree/master/examples/
 
 
 ### TouchPhat側
+
+#### スクリプトを使用する場合
+
+```shell
+$ sudo pre-install-touchphat.sh
+```
+
+#### 手動で行う場合
 
 ```shell
 $ sudo raspi-config # I2Cを有効にする
