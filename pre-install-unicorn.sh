@@ -5,7 +5,7 @@
 #  pre-install-unicorn.sh: unicorn-mqtt UnicornHatHD側のインストールスクリプト
 #  Written by Shoji Iwaura (xshell inc) at 2018/11/27
 #
-# Usage  : sudo ./pre-install-unicorn.sh
+# Usage  : ./pre-install-unicorn.sh
 #
 #
 ######################################################################
@@ -21,27 +21,19 @@ UNICORNHATHD_ARCHIVE=https://github.com/pimoroni/unicorn-hat-hd/archive/master.z
 ICON_DIR=${SCRIPT_DIR}/unicorn_mqtt_display/display/weather-icons
 
 
-# rootユーザー化の確認
-# aptコマンドなど、ユーザー権限が必要なのでこれを
-if [ `id -u` != 0 ]
-then
-    echo -e "$PGM needs to be run as root."
-    exit 1
-fi
-
 # メッセージの出力
 echo "installing..."
 
 # spiが有効になっていない場合、有効にする
-[ $(raspi-config nonint get_spi) -eq "1" ] && raspi-config nonint do_spi 0
+[ $(sudo raspi-config nonint get_spi) -eq "1" ] && sudo raspi-config nonint do_spi 0
 
 # 必要なaptパッケージのインストール
-apt-get install -y python3 python3-pip
-apt-get install -y python3-pil python3-unicornhathd
-apt-get install -y ttf-dejavu fonts-takao
+sudo apt-get install -y python3 python3-pip
+sudo apt-get install -y python3-pil python3-unicornhathd
+sudo apt-get install -y ttf-dejavu fonts-takao
 
 # pipパッケージのインストール
-pip3 install -r ${SCRIPT_DIR}/requirements.txt
+sudo pip3 install -r ${SCRIPT_DIR}/requirements.txt
 
 # 天気アイコンが必要な場合、これを作成する。
 if [ ! -e ${ICON_DIR} ]; then
