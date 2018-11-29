@@ -19,7 +19,7 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 echo "installing..."
 
 # i2dが有効になっていない場合、有効にする
-[ $(raspi-config nonint get_i2c) -eq "1" ] && raspi-config nonint do_i2c 0
+[ $(sudo raspi-config nonint get_i2c) -eq "1" ] && sudo raspi-config nonint do_i2c 0
 
 # 必要なaptパッケージのインストール
 sudo apt-get install -y python3 python3-pip

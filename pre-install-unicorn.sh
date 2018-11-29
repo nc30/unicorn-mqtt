@@ -42,7 +42,7 @@ if [ ! -e ${ICON_DIR} ]; then
     # mktempコマンドで一時的に使用するディレクトリを作成する
     tmpdir=$(mktemp -d)
     cd ${tmpdir}
-    
+
     # アーカイブのダウンロード
     # -O オプションでファイル名を指定する。これをすることにより大元のファイル名が変わった場合でも対応できる。
     wget -O archive.zip ${UNICORNHATHD_ARCHIVE}
@@ -53,7 +53,7 @@ if [ ! -e ${ICON_DIR} ]; then
     cp -rv weather-icons ${ICON_DIR}
 
     # 一時ディレクトリの削除
-    cd ${SCRIPT_DIR}    
+    cd ${SCRIPT_DIR}
     rm -rf ${tmpdir}
 fi
 
