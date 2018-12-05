@@ -21,7 +21,7 @@ https://www.cloudmqtt.com
 #### スクリプトを使用する場合
 
 ```shell
-$ sudo ./pre-install-unicorn.sh
+$ ./pre-install-unicorn.sh
 ```
 
 #### 手動で行う場合
@@ -45,7 +45,7 @@ https://github.com/pimoroni/unicorn-hat-hd/tree/master/examples/
 #### スクリプトを使用する場合
 
 ```shell
-$ sudo ./pre-install-touchphat.sh
+$ ./pre-install-touchphat.sh
 ```
 
 #### 手動で行う場合
